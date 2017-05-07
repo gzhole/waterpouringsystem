@@ -8,6 +8,7 @@ import java.util.List;
 public class Path {
 	private final List<Move> history;
 	private final int [] endState;
+	
 	public int[] getEndState() {
 		return endState;
 	}
@@ -30,7 +31,6 @@ public class Path {
 	
 	@Override
 	public String toString() {
-		//List<Move> newHisotry = new LinkedList<Move>(history);
 		List<Move> newHisotry = new LinkedList<Move>();
 		if (history != null ) {
 			newHisotry.addAll(history);

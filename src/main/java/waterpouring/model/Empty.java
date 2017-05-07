@@ -1,7 +1,7 @@
 package waterpouring.model;
 
-public class Empty implements Move {
-	private int glass;
+public final class Empty implements Move {
+	private final int glass;
 	public Empty(int glass) {
 		this.glass = glass;
 	}

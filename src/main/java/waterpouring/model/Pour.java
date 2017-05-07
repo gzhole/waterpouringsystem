@@ -1,9 +1,9 @@
 package waterpouring.model;
 
 public class Pour implements Move {
-	private int fromGlass;
-	private int toGlass;
-	private int [] capacity; 
+	private final int fromGlass;
+	private final int toGlass;
+	private final int [] capacity; 
 	public Pour(int fromGlass, int toGlass, int [] capacity) {
 		this.fromGlass = fromGlass;
 		this.toGlass = toGlass;
@@ -24,8 +24,6 @@ public class Pour implements Move {
 	
 	@Override
 	public String toString() {
-		//List<Move> newHisotry = new LinkedList<Move>(history);
-		// Collections.reverse(newHisotry);
 		return this.getClass().getSimpleName() + " from " + fromGlass + " to " + toGlass;
 	}
 
