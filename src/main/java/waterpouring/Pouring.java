@@ -19,7 +19,14 @@ import waterpouring.model.Pour;
 
 import com.nurkiewicz.lazyseq.LazySeq;
 
-public class Pouring {
+/**
+ * 
+ * A functional approach to Solve the Water Pouring puzzles
+ * 
+ * @author garyzeng
+ *
+ */
+public final class Pouring {
 	private final int[] capacity;
 	private final int[] initialState;
 	private final Path initialPath;
@@ -36,7 +43,6 @@ public class Pouring {
 		Set<int[]> explored = new HashSet<int[]>();
 		explored.add(initialState);
 		pathSets = from(initialPaths, explored);
-
 	}
 
 	public static void main(String[] args) {
@@ -47,7 +53,7 @@ public class Pouring {
 
 	}
 
-	public List<Move> getAllMoves() {
+	private List<Move> getAllMoves() {
 		List<Move> moves = new LinkedList<Move>();
 		for (int i = 0; i < capacity.length; i++) {
 			moves.add(new Empty(i));
@@ -77,12 +83,7 @@ public class Pouring {
 					}
 				}
 			}
-
-		//	System.out.println(initialPaths);
-			return LazySeq.cons(
-					initialPaths,
-					() -> from(more,
-							Utilities.addPathsToExplored(explored, more)));
+			return LazySeq.cons(initialPaths,	() -> from(more,Utilities.addPathsToExplored(explored, more)));
 		}
 	}
 
@@ -96,5 +97,4 @@ public class Pouring {
 		}
 		return null;
 	}
-
 }
