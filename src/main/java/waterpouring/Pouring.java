@@ -40,9 +40,9 @@ public class Pouring {
 	}
 
 	public static void main(String[] args) {
-		int[] capacity = { 3, 7 };
+		int[] capacity = { 3, 5 };
 		Pouring system = new Pouring(capacity);
-		Path resultPath = system.solution(5);
+		Path resultPath = system.solution(4);
 		System.out.println("result is: " + resultPath);
 
 	}
@@ -64,9 +64,7 @@ public class Pouring {
 		return moves;
 	}
 
-	private LazySeq<List<Path>> from(List<Path> initialPaths,
-			Set<int[]> explored) {
-
+	private LazySeq<List<Path>> from(List<Path> initialPaths,Set<int[]> explored) {
 		if (initialPaths.isEmpty()) {
 			return empty();
 		} else {
@@ -74,49 +72,29 @@ public class Pouring {
 			for (Path path : initialPaths) {
 				for (Move move : moves) {
 					Path next = path.extend(move);
-					if (!isExplored(explored, next.getEndState())) {
+					if (!Utilities.isExplored(explored, next.getEndState())) {
 						more.add(next);
 					}
 				}
 			}
 
 		//	System.out.println(initialPaths);
-			return LazySeq.cons(initialPaths, () -> from(more, addPathsToExplored(explored, more)));
+			return LazySeq.cons(
+					initialPaths,
+					() -> from(more,
+							Utilities.addPathsToExplored(explored, more)));
 		}
-	}
-
-	private boolean isExplored(Set<int[]> explored, int[] endState) {
-		for (int[] state : explored) {
-			if (Arrays.equals(state, endState)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private Set<int[]> addPathsToExplored(Set<int[]> explored, List<Path> more) {
-
-		return Stream.concat(explored.stream(),	more.stream().map(x -> x.getEndState())).collect(Collectors.toSet());
 	}
 
 	public Path solution(int target) {
 		for (List<Path> pathSet : pathSets) {
 			for (Path path : pathSet) {
-				if (isTargetInEndState(path.getEndState(), target)) {
+				if (Utilities.isTargetInEndState(path.getEndState(), target)) {
 					return path;
 				}
 			}
 		}
-
 		return null;
-	}
-
-	private boolean isTargetInEndState(int[] endState, int target) {
-		for (int i : endState) {
-			if (target == i)
-				return true;
-		}
-		return false;
 	}
 
 }
