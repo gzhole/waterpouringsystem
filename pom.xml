@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>pvm30</groupId>
+	<groupId>garyzeng</groupId>
 	<artifactId>waterPouringProblem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>WaterPouringProblem</name>
-	<description>A translation to Java of the solution offered in the course 'Functional Programming Principles in Scala'</description>
+	<description>A Java 8 functional implementation to Water Pouring System  </description>
 
 	<dependencies>
 		<dependency>

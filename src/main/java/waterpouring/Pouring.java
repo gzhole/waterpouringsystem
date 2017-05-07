@@ -12,8 +12,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import pouring.moves.State;
-
 import com.nurkiewicz.lazyseq.LazySeq;
 
 import waterpouring.model.Empty;
