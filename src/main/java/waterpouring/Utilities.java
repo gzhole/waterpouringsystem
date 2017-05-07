@@ -19,7 +19,6 @@ public class Utilities {
 	
 	
 	public static Set<int[]> addPathsToExplored(Set<int[]> explored, List<Path> more) {
-
 		return Stream.concat(explored.stream(),	more.stream().map(x -> x.getEndState())).collect(Collectors.toSet());
 	}
 	

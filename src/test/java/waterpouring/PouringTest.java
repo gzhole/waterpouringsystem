@@ -21,6 +21,16 @@ public class PouringTest {
 	
 	}
 	
+	@Test
+	public void testDieHard() {
+		int [] capacity = {3,5};
+		Pouring pouring = new Pouring(capacity);
+		Path path = pouring.solution(4);
+		//System.out.println(path);
+		assertEquals(path.toString(), "[Fill 1, Pour from 1 to 0, Empty 0, Pour from 1 to 0, Fill 1, Pour from 1 to 0]-->[3, 4]");
+	
+	}
+	
 	/**
 	 * Test first layer
 	 */
