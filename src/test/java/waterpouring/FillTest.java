@@ -1,10 +1,9 @@
 package waterpouring;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
 
-import waterpouring.model.Empty;
 import waterpouring.model.Fill;
 import waterpouring.model.Move;
 

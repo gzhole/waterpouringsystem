@@ -1,15 +1,9 @@
 package waterpouring;
 
-import static org.junit.Assert.*;
-
-import java.util.LinkedList;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import waterpouring.model.Empty;
-import waterpouring.model.Fill;
-import waterpouring.model.Move;
 import waterpouring.model.Path;
 
 public class PouringTest {
