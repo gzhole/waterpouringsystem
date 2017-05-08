@@ -27,19 +27,17 @@ public final class Pouring {
 	private final int[] capacity;
 	private final int[] initialState;
 	private final Path initialPath;
-	private final List<Move> moves;
 	private final LazySeq<List<Path>> pathSets;
 
 	public Pouring(int[] capacity) {
 		this.capacity = capacity;
 		initialState = new int[capacity.length];
 		initialPath = new Path(null, initialState);
-		moves = getAllMoves();
 		List<Path> initialPaths = new ArrayList<Path>();
 		initialPaths.add(initialPath);
 		Set<int[]> explored = new HashSet<int[]>();
 		explored.add(initialState);
-		pathSets = from(initialPaths, explored);
+		pathSets = from(initialPaths, explored,getAllMoves());
 	}
 
 	public static void main(String[] args) {
@@ -67,20 +65,20 @@ public final class Pouring {
 		return moves;
 	}
 
-	private LazySeq<List<Path>> from(List<Path> initialPaths,Set<int[]> explored) {
-		if (initialPaths.isEmpty()) {
+	private LazySeq<List<Path>> from(List<Path> currentPaths,Set<int[]> explored, List<Move> moves) {
+		if (currentPaths.isEmpty()) {
 			return empty();
 		} else {
-			List<Path> more = new ArrayList<Path>();
-			for (Path path : initialPaths) {
+			List<Path> morePaths = new ArrayList<Path>();
+			for (Path path : currentPaths) {
 				for (Move move : moves) {
 					Path next = path.extend(move);
 					if (!Utilities.isExplored(explored, next.getEndState())) {
-						more.add(next);
+						morePaths.add(next);
 					}
 				}
 			}
-			return LazySeq.cons(initialPaths,	() -> from(more,Utilities.addPathsToExplored(explored, more)));
+			return LazySeq.cons(currentPaths,	() -> from(morePaths,Utilities.addPathsToExplored(explored, morePaths),moves));
 		}
 	}
 

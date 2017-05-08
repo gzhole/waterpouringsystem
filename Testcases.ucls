@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="waterpouring.model.Path" project="waterPouringProblem" 
     file="/waterPouringProblem/src/main/java/waterpouring/model/Path.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="391" y="260"/>    
+    <position height="-1" width="-1" x="438" y="275"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="waterpouring.model.Pour" project="waterPouringProblem" 
     file="/waterPouringProblem/src/main/java/waterpouring/model/Pour.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="549" y="269"/>    
+    <position height="-1" width="-1" x="597" y="283"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="waterpouring.model.Fill" project="waterPouringProblem" 
     file="/waterPouringProblem/src/main/java/waterpouring/model/Fill.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="708" y="262"/>    
+    <position height="-1" width="-1" x="726" y="278"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="waterpouring.model.Empty" project="waterPouringProblem" 
     file="/waterPouringProblem/src/main/java/waterpouring/model/Empty.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="874" y="248"/>    
+    <position height="-1" width="-1" x="876" y="272"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <interface id="5" language="java" name="waterpouring.model.Move" project="waterPouringProblem" 
     file="/waterPouringProblem/src/main/java/waterpouring/model/Move.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="497" y="81"/>    
+    <position height="-1" width="-1" x="579" y="71"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -117,22 +117,14 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="17">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="18" name="moves"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="18" name="history"/>      
       <multiplicity id="19" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="20">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="21" name="history"/>      
-      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="23">    
+  <realization id="20">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
